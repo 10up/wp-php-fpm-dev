@@ -1,8 +1,10 @@
 ## Supported tags
 
-* `7.2`, `7.3`, `7.4`
+* `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`
 
-# CentOS 8 - wp-php-fpm-dev
+`5.6` through `7.1` is built using CentOS 7 and `7.2` through `7.4` is built using CentOS 8.
+
+# CentOS - wp-php-fpm-dev
 
 This image extends the wp-php-fpm image to include additional tools focusing on developing WordPress using wp-local-docker-v2. These tools include git, vim, telnet, strace, wp-cli, nvm/node, composer. It is also configured to capture log output from PHP and log it to stderr.
 
