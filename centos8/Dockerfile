@@ -34,6 +34,8 @@ RUN  mkdir /etc/php-extensions-available; \
 COPY entrypoint-dev.sh /
 RUN chmod +x /entrypoint-dev.sh
 
+RUN echo "opcache.validate_timestamps=1" >> /etc/php.d/docker-opcache.ini
+
 USER www-data
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash && \
   source ~/.bashrc && \
