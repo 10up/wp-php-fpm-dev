@@ -1,5 +1,5 @@
 ARG PHP_VERSION=7.3
-FROM dustinrue/wp-php-fpm:${PHP_VERSION}
+FROM 10up/wp-php-fpm:${PHP_VERSION}
 
 ARG PHP_VERSION=7.3
 
