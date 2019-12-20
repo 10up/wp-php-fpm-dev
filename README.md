@@ -1,12 +1,14 @@
+# CentOS - wp-php-fpm-dev
+
+> This image extends the wp-php-fpm image to include additional tools focusing on developing WordPress using wp-local-docker-v2. These tools include git, vim, telnet, strace, wp-cli, nvm/node, composer. It is also configured to capture log output from PHP and log it to stderr.
+
+[![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![MIT License](https://img.shields.io/github/license/10up/wp-php-fpm-dev.svg)](https://github.com/10up/wp-php-fpm-dev/blob/master/LICENSE)
+
 ## Supported tags
 
 * `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`
 
 `5.6` through `7.1` is built using CentOS 7 and `7.2` through `7.4` is built using CentOS 8.
-
-# CentOS - wp-php-fpm-dev
-
-This image extends the wp-php-fpm image to include additional tools focusing on developing WordPress using wp-local-docker-v2. These tools include git, vim, telnet, strace, wp-cli, nvm/node, composer. It is also configured to capture log output from PHP and log it to stderr.
 
 ## Usage
 
@@ -28,7 +30,6 @@ The entrypoint script will then configure MSMTP properly.
 ## Xdebug
 
 Xdebug can be very slow on some systems. By default, xdebug will not be loaded. If you wish to have Xdebug loaded pass an environment variable of ENABLE_XDEBUG=true to enable it.
-
 
 ## Building
 
