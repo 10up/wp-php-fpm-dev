@@ -32,7 +32,9 @@ RUN  mkdir /etc/php-extensions-available; \
   chown www-data -R /etc/php*
 
 COPY entrypoint-dev.sh /
-RUN chmod +x /entrypoint-dev.sh
+COPY bash.sh /
+RUN chmod +x /entrypoint-dev.sh && \
+    chmod +x /bash.sh
 
 RUN echo "opcache.validate_timestamps=1" >> /etc/php.d/docker-opcache.ini
 

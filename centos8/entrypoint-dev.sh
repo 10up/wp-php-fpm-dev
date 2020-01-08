@@ -24,4 +24,8 @@ if [ $(whoami) != "www-data" ]; then
     fix_linux_internal_host
 fi
 
-exec /entrypoint.sh
+if [ ! -z "${EXEC_BASH}" ]; then
+  exec /bin/bash -c ${COMMAND}
+else
+  exec /entrypoint.sh
+fi
