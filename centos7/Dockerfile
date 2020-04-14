@@ -22,7 +22,6 @@ COPY scripts/composer-installer.sh /composer-installer.sh
 RUN sh /composer-installer.sh && mv /composer.phar /usr/local/bin/composer && chmod +x /usr/local/bin/composer
 RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp
-RUN echo "catch_workers_output = yes" >> /etc/php-fpm.d/www.conf
 RUN echo "ALL ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/enable-all
 
 # entrypoint needs to manage the PHP config but will be running as www-data
