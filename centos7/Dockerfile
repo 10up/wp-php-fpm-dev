@@ -16,6 +16,7 @@ RUN export VERSION=$(echo $PHP_VERSION | sed -E 's/([0-9]).([0-9])/\1\2/g') && \
   vim \
   sudo \
   iproute \
+  svn \
   unzip -y && yum clean all
 
 WORKDIR /

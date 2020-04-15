@@ -15,6 +15,7 @@ RUN yum install \
   rsync \
   vim \
   sudo \
+  svn \
   unzip -y && yum clean all
 
 WORKDIR /
