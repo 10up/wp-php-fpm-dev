@@ -45,10 +45,10 @@ RUN chmod +x /entrypoint-dev.sh && \
 
 RUN echo "opcache.validate_timestamps=1" >> /etc/php/${PHP_VERSION}/mods-available/docker-opcache.ini
 
+RUN cp -a /etc/skel /home/www-data && chown 33:33 -R /home/www-data && usermod -d /home/www-data www-data
 USER www-data
-RUN touch ~/.bashrc
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.1/install.sh | bash && \
-  source ~/.bashrc && \
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash && \
+  source ~/.profile && \
   nvm install --lts
 WORKDIR /var/www/html
 
