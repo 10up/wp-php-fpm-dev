@@ -44,4 +44,3 @@ This project takes advantage of custom build phase hooks as described at https:/
 <p align="center">
 <a href="http://10up.com/contact/"><img src="https://10up.com/uploads/2016/10/10up-Github-Banner.png" width="850"></a>
 </p>
-
