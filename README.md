@@ -6,9 +6,25 @@
 
 ## Supported tags
 
-* `5.6`, `7.0`, `7.1`, `7.2`, `7.3`, `7.4`
+There are currently a number of images being built for the different operating systems. This image is built using 10up/wp-php-fpm as the base image with support for PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0 and 8.1. They are available under the tags:
 
-`5.6` through `7.1` is built using CentOS 7 and `7.2` through `7.4` is built using CentOS 8.
+* CentOS 7 based
+  * 10up/wp-php-fpm-dev:5.6
+  * 10up/wp-php-fpm-dev:7.0
+  * 10up/wp-php-fpm-dev:7.1
+* Rocky Linux 8 based
+  * 10up/wp-php-fpm-dev:7.2
+  * 10up/wp-php-fpm-dev:7.3
+  * 10up/wp-php-fpm-dev:7.4
+  * 10up/wp-php-fpm-dev:8.0
+* Ubuntu 22.04 based
+  * 10up/wp-php-fpm-dev:7.0-ubuntu
+  * 10up/wp-php-fpm-dev:7.1-ubuntu
+  * 10up/wp-php-fpm-dev:7.2-ubuntu
+  * 10up/wp-php-fpm-dev:7.3-ubuntu
+  * 10up/wp-php-fpm-dev:7.4-ubuntu
+  * 10up/wp-php-fpm-dev:8.0-ubuntu
+  * 10up/wp-php-fpm-dev:8.1-ubuntu
 
 ## Usage
 
@@ -17,7 +33,7 @@ This image runs just php-fpm and expects that files are located at `/var/www/htm
 ```
 docker run -d --name phpfpm \
   -v /var/www/html:/var/www/html
-  10up/wp-php-fpm-dev
+  10up/wp-php-fpm-dev:8.1-ubuntu
 ```
 
 This image is configured with MSMTP for handling email. It can only be configured to talk to an even smarter smart host meaning it cannot be configured with authentication of any sort. To configure MSMTP pass the following environment variables
@@ -26,6 +42,12 @@ This image is configured with MSMTP for handling email. It can only be configure
 * `MAILER_PORT=<your mailer hosts port>`
 
 The entrypoint script will then configure MSMTP properly.
+
+## Composer/nvm
+
+This image contains composer versions 1 and 2. Composer 2 is used by default and to use composer 1, set the `COMPOSER_VERSION` env var to 1.
+
+Node Version Manager is also installed and ready for use. You may find nvm is difficult to get loaded, be sure you are using a "login" prompt so that the nvm system has been loaded. For bash, this would mean "bash -l" should be called.
 
 ## Xdebug
 
