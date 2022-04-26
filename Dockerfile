@@ -1,10 +1,10 @@
-ARG PHP_VERSION=7.1
+ARG PHP_VERSION=7.4
 
 # Set a BASE_IMAGE CI var to specify a different base image
 ARG BASE_IMAGE=10up/wp-php-fpm
 FROM ${BASE_IMAGE}:${PHP_VERSION}-ubuntu
 
-ARG PHP_VERSION=7.1
+ARG PHP_VERSION=7.4
 
 USER root
 RUN \
@@ -27,16 +27,21 @@ RUN \
 
 WORKDIR /
 COPY scripts/composer-installer.sh /composer-installer.sh
-RUN sh /composer-installer.sh && mv /composer.phar /usr/local/bin/composer && chmod +x /usr/local/bin/composer
+RUN \
+  sh /composer-installer.sh && \
+  mv /composer1 /usr/local/bin/composer1 && \
+  chmod +x /usr/local/bin/composer1 && \
+  mv /composer2 /usr/local/bin/composer2 && \
+  chmod +x /usr/local/bin/composer2
 RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp
 RUN echo "ALL ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/enable-all
 
 # entrypoint needs to manage the PHP config but will be running as www-data
 # Get things setup and then re-own the files necessary to allow this
-RUN  mkdir /etc/php-extensions-available; \
-  mv /etc/php.d/15-xdebug.ini /etc/php-extensions-available; \
-  chown www-data -R /etc/php*
+#RUN  mkdir /etc/php-extensions-available; \
+#  mv /etc/php/${PHP_VERSION}/mods-available/xdebug.ini /etc/php-extensions-available; \
+#  chown www-data -R /etc/php*
 
 COPY entrypoint-dev.sh /
 COPY bash.sh /
