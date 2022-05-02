@@ -27,12 +27,10 @@ RUN \
 
 WORKDIR /
 COPY scripts/composer-installer.sh /composer-installer.sh
+COPY scripts/composer /usr/local/bin/composer
 RUN \
   sh /composer-installer.sh && \
-  mv /composer1 /usr/local/bin/composer1 && \
-  chmod +x /usr/local/bin/composer1 && \
-  mv /composer2 /usr/local/bin/composer2 && \
-  chmod +x /usr/local/bin/composer2
+  chmod +x /usr/local/bin/composer
 RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp
 RUN echo "ALL ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/enable-all
