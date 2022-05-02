@@ -23,7 +23,7 @@ RUN \
     sudo \
     iproute2 \
     subversion \
-    unzip && apt clean all
+    unzip && apt clean all && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
 COPY scripts/composer-installer.sh /composer-installer.sh
