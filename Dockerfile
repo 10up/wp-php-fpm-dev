@@ -1,10 +1,10 @@
-ARG PHP_VERSION=7.1
+ARG PHP_VERSION=7.4
 
 # Set a BASE_IMAGE CI var to specify a different base image
 ARG BASE_IMAGE=10up/wp-php-fpm
 FROM ${BASE_IMAGE}:${PHP_VERSION}-ubuntu
 
-ARG PHP_VERSION=7.1
+ARG PHP_VERSION=7.4
 
 USER root
 RUN \
@@ -23,20 +23,23 @@ RUN \
     sudo \
     iproute2 \
     subversion \
-    unzip && apt clean all
+    unzip && apt clean all && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
 COPY scripts/composer-installer.sh /composer-installer.sh
-RUN sh /composer-installer.sh && mv /composer.phar /usr/local/bin/composer && chmod +x /usr/local/bin/composer
+COPY scripts/composer /usr/local/bin/composer
+RUN \
+  sh /composer-installer.sh && \
+  chmod +x /usr/local/bin/composer 
 RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp
 RUN echo "ALL ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/enable-all
 
 # entrypoint needs to manage the PHP config but will be running as www-data
 # Get things setup and then re-own the files necessary to allow this
-RUN  mkdir /etc/php-extensions-available; \
-  mv /etc/php.d/15-xdebug.ini /etc/php-extensions-available; \
-  chown www-data -R /etc/php*
+#RUN  mkdir /etc/php-extensions-available; \
+#  mv /etc/php/${PHP_VERSION}/mods-available/xdebug.ini /etc/php-extensions-available; \
+#  chown www-data -R /etc/php*
 
 COPY entrypoint-dev.sh /
 COPY bash.sh /
@@ -47,9 +50,12 @@ RUN echo "opcache.validate_timestamps=1" >> /etc/php/${PHP_VERSION}/mods-availab
 
 RUN cp -a /etc/skel /home/www-data && chown 33:33 -R /home/www-data && usermod -d /home/www-data www-data
 USER www-data
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash && \
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
   source ~/.profile && \
-  nvm install --lts
+  nvm install --lts && \
+  composer global require 10up/wpsnapshots && \
+  echo "export PATH=$(composer global config bin-dir --absolute -q):$PATH" >> ~/.bashrc
 WORKDIR /var/www/html
 
-ENTRYPOINT ["/entrypoint-dev.sh"]
+ENTRYPOINT []
+CMD ["/entrypoint-dev.sh"]
