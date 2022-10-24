@@ -30,7 +30,7 @@ COPY scripts/composer-installer.sh /composer-installer.sh
 COPY scripts/composer /usr/local/bin/composer
 RUN \
   sh /composer-installer.sh && \
-  chmod +x /usr/local/bin/composer
+  chmod +x /usr/local/bin/composer 
 RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp
 RUN echo "ALL ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/enable-all
@@ -52,7 +52,10 @@ RUN cp -a /etc/skel /home/www-data && chown 33:33 -R /home/www-data && usermod -
 USER www-data
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
   source ~/.profile && \
-  nvm install --lts
+  nvm install --lts && \
+  composer global require 10up/wpsnapshots && \
+  echo "export PATH=$(composer global config bin-dir --absolute -q):$PATH" >> ~/.bashrc
 WORKDIR /var/www/html
 
-ENTRYPOINT ["/entrypoint-dev.sh"]
+ENTRYPOINT []
+CMD ["/entrypoint-dev.sh"]
