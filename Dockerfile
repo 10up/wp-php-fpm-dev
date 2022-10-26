@@ -54,6 +54,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
   source ~/.profile && \
   nvm install --lts && \
   composer global require 10up/wpsnapshots && \
+  wp package install https://github.com/dustinrue/wpsnapshots/archive/refs/tags/3.0alpha1.zip && \
   echo "export PATH=$(composer global config bin-dir --absolute -q):$PATH" >> ~/.bashrc
 WORKDIR /var/www/html
 
