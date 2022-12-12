@@ -6,7 +6,7 @@
 
 ## Supported tags
 
-There are currently a number of images being built for the different operating systems. This image is built using 10up/wp-php-fpm as the base image with support for PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0 and 8.1. They are available under the tags:
+There are currently a number of images being built for the different operating systems. This image is built using 10up/wp-php-fpm as the base image with support for PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1 and 8.2. They are available under the tags:
 
 * CentOS 7 based
   * 10up/wp-php-fpm-dev:5.6
@@ -25,6 +25,7 @@ There are currently a number of images being built for the different operating s
   * 10up/wp-php-fpm-dev:7.4-ubuntu
   * 10up/wp-php-fpm-dev:8.0-ubuntu
   * 10up/wp-php-fpm-dev:8.1-ubuntu
+  * 10up/wp-php-fpm-dev:8.2-ubuntu
 
 ## Usage
 
