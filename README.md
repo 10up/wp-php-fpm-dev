@@ -1,23 +1,27 @@
-# CentOS - wp-php-fpm-dev
+# 10up/wp-php-fpm-dev
 
-> This image extends the wp-php-fpm image to include additional tools focusing on developing WordPress using wp-local-docker-v2. These tools include git, vim, telnet, strace, wp-cli, nvm/node, composer. It is also configured to capture log output from PHP and log it to stderr.
+> This image extends the wp-php-fpm image to include additional tools focusing on developing WordPress using wp-local-docker-v2 and other development systems. These tools include git, vim, telnet, strace, wp-cli, nvm/node, composer. It is also configured to capture log output from PHP and log it to stderr.
 
 [![Support Level](https://img.shields.io/badge/support-active-green.svg)](#support-level) [![MIT License](https://img.shields.io/github/license/10up/wp-php-fpm-dev.svg)](https://github.com/10up/wp-php-fpm-dev/blob/master/LICENSE)
 
 ## Supported tags
 
-There are currently a number of images being built for the different operating systems. This image is built using 10up/wp-php-fpm as the base image with support for PHP 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1 and 8.2. They are available under the tags:
+There are currently a number of images being built for the different operating systems. This image is built using 10up/wp-php-fpm as the base image with support for PHP 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1 and 8.2. Note that we do not build CentOS/Rocky Linux based images beyond 8.0 and they will be removed in the future. 
+
+Also note that CentOS/RL based images are not being pushed to ghcr.io!
+
+They are available under the tags:
 
 * CentOS 7 based
-  * 10up/wp-php-fpm-dev:5.6
-  * 10up/wp-php-fpm-dev:7.0
-  * 10up/wp-php-fpm-dev:7.1
+  * 10up/wp-php-fpm-dev:5.6 (Deprecated, no longer refreshed)
+  * 10up/wp-php-fpm-dev:7.0 (Deprecated)
+  * 10up/wp-php-fpm-dev:7.1 (Deprecated)
 * Rocky Linux 8 based
-  * 10up/wp-php-fpm-dev:7.2
-  * 10up/wp-php-fpm-dev:7.3
-  * 10up/wp-php-fpm-dev:7.4
-  * 10up/wp-php-fpm-dev:8.0
-* Ubuntu 22.04 based
+  * 10up/wp-php-fpm-dev:7.2 (Deprecated)
+  * 10up/wp-php-fpm-dev:7.3 (Deprecated)
+  * 10up/wp-php-fpm-dev:7.4 (Deprecated)
+  * 10up/wp-php-fpm-dev:8.0 (Deprecated)
+* Ubuntu 22.04 based (Docker Hub)
   * 10up/wp-php-fpm-dev:7.0-ubuntu
   * 10up/wp-php-fpm-dev:7.1-ubuntu
   * 10up/wp-php-fpm-dev:7.2-ubuntu
@@ -26,6 +30,15 @@ There are currently a number of images being built for the different operating s
   * 10up/wp-php-fpm-dev:8.0-ubuntu
   * 10up/wp-php-fpm-dev:8.1-ubuntu
   * 10up/wp-php-fpm-dev:8.2-ubuntu
+* Ubuntu 22.04 based (Github Packages)
+  * ghcr.io/10up/wp-php-fpm-dev:7.0-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:7.1-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:7.2-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:7.3-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:7.4-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:8.0-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:8.1-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:8.2-ubuntu
 
 ## Usage
 
@@ -34,7 +47,7 @@ This image runs just php-fpm and expects that files are located at `/var/www/htm
 ```
 docker run -d --name phpfpm \
   -v /var/www/html:/var/www/html
-  10up/wp-php-fpm-dev:8.1-ubuntu
+  10up/wp-php-fpm-dev:8.2-ubuntu
 ```
 
 This image is configured with MSMTP for handling email. It can only be configured to talk to an even smarter smart host meaning it cannot be configured with authentication of any sort. To configure MSMTP pass the following environment variables
@@ -56,7 +69,10 @@ Xdebug can be very slow on some systems. By default, xdebug will not be loaded. 
 
 ## Building
 
-This project takes advantage of custom build phase hooks as described at https://docs.docker.com/docker-hub/builds/advanced/. When setting up builds on docker hub create automated builds with rules to build for the master branch for each PHP version you want built. Currently this image is built with 5.6, 7.0, 7.1, 7.2, 7.3 and 7.4.
+* `IMAGE_NAME` - The name of the image. For example, 10up sets this value to `10up/wp-php-fpm-dev`. You must set this to your own value.
+* `DOCKERHUB_USERNAME` - The username for the Docker hub account you wish to push images to.
+* `DOCKERHUB_TOKEN` - The token to use against your Docker hub account.
+* `BASE_IMAGE` - The base image to build this image from. Typically this is `10up/wp-php-fpm`. If you are also customizing the wp-php-fpm image then setting this variable will ensure wp-php-fpm-dev is built from your customized base image. Note that we do not build CentOS/Rocky Linux based images beyond 8.0 and they will be removed in the future. 
 
 ## Support Level
 
