@@ -56,7 +56,7 @@ RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | b
   composer global require 10up/wpsnapshots && \
   echo "export PATH=$(composer global config bin-dir --absolute -q):$PATH" >> ~/.bashrc
 RUN \
-  curl -o /tmp/snapshots.zip https://codeload.github.com/10up/snapshots/zip/refs/tags/1.1.0 && \
+  curl -o /tmp/snapshots.zip https://codeload.github.com/10up/snapshots/zip/refs/tags/1.2.1 && \
   wp package install /tmp/snapshots.zip && \
   rm -f /tmp/snapshots.zip
 
