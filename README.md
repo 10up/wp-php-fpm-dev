@@ -14,8 +14,8 @@ They are available under the tags:
 
 * CentOS 7 based
   * 10up/wp-php-fpm-dev:5.6 (Deprecated, no longer refreshed)
-  * 10up/wp-php-fpm-dev:7.0 (Deprecated)
-  * 10up/wp-php-fpm-dev:7.1 (Deprecated)
+  * 10up/wp-php-fpm-dev:7.0 (Deprecated, no longer refreshed)
+  * 10up/wp-php-fpm-dev:7.1 (Deprecated, no longer refreshed)
 * Rocky Linux 8 based
   * 10up/wp-php-fpm-dev:7.2 (Deprecated)
   * 10up/wp-php-fpm-dev:7.3 (Deprecated)
@@ -30,6 +30,7 @@ They are available under the tags:
   * 10up/wp-php-fpm-dev:8.0-ubuntu
   * 10up/wp-php-fpm-dev:8.1-ubuntu
   * 10up/wp-php-fpm-dev:8.2-ubuntu
+  * 10up/wp-php-fpm-dev:8.3-ubuntu
 * Ubuntu 22.04 based (Github Packages)
   * ghcr.io/10up/wp-php-fpm-dev:7.0-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:7.1-ubuntu
@@ -39,6 +40,7 @@ They are available under the tags:
   * ghcr.io/10up/wp-php-fpm-dev:8.0-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:8.1-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:8.2-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:8.3-ubuntu
 
 ## Usage
 
