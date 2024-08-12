@@ -2,7 +2,8 @@ ARG PHP_VERSION=8.2
 
 # Set a BASE_IMAGE CI var to specify a different base image
 ARG BASE_IMAGE=ghcr.io/10up/wp-php-fpm
-FROM ${BASE_IMAGE}:${PHP_VERSION}-ubuntu
+ARG UBUNTU_RELEASE_NAME=jammy
+FROM ${BASE_IMAGE}:${PHP_VERSION}-${UBUNTU_RELEASE_NAME}
 
 ARG PHP_VERSION=8.2
 
@@ -13,8 +14,9 @@ RUN \
   apt-get install -y \
     php${PHP_VERSION}-xdebug \
     mariadb-client \
-    netcat \
+    netcat-traditional \
     wget \
+    curl \
     git \
     strace \
     telnet \
@@ -50,7 +52,7 @@ RUN echo "opcache.validate_timestamps=1" >> /etc/php/${PHP_VERSION}/mods-availab
 
 RUN cp -a /etc/skel /home/www-data && chown 33:33 -R /home/www-data && usermod -d /home/www-data www-data
 USER www-data
-RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash && \
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.0/install.sh | bash && \
   source ~/.profile && \
   nvm install --lts && \
   composer global require 10up/wpsnapshots && \
