@@ -41,6 +41,26 @@ They are available under the tags:
   * ghcr.io/10up/wp-php-fpm-dev:8.1-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:8.2-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:8.3-ubuntu
+* Ubuntu 24.04 based (Docker Hub)
+  * 10up/wp-php-fpm:7.0-noble
+  * 10up/wp-php-fpm:7.1-noble
+  * 10up/wp-php-fpm:7.2-noble
+  * 10up/wp-php-fpm:7.3-noble
+  * 10up/wp-php-fpm:7.4-noble
+  * 10up/wp-php-fpm:8.0-noble
+  * 10up/wp-php-fpm:8.1-noble
+  * 10up/wp-php-fpm:8.2-noble
+  * 10up/wp-php-fpm:8.3-noble
+* Ubuntu 24.04 based (Github Packages)
+  * ghcr.io/10up/wp-php-fpm:7.0-noble
+  * ghcr.io/10up/wp-php-fpm:7.1-noble
+  * ghcr.io/10up/wp-php-fpm:7.2-noble
+  * ghcr.io/10up/wp-php-fpm:7.3-noble
+  * ghcr.io/10up/wp-php-fpm:7.4-noble
+  * ghcr.io/10up/wp-php-fpm:8.0-noble
+  * ghcr.io/10up/wp-php-fpm:8.1-noble
+  * ghcr.io/10up/wp-php-fpm:8.2-noble
+  * ghcr.io/10up/wp-php-fpm:8.3-noble
 
 ## Usage
 
