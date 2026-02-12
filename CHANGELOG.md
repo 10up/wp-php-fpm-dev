@@ -2,6 +2,10 @@
 
 Notable changes to the image will be tracked here.
 
+## 2026-02-12
+
+Added a PHP 8.4 version
+
 ## 2022-12-12
 
 Added a PHP 8.2 version

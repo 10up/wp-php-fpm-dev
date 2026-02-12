@@ -6,7 +6,7 @@
 
 ## Supported tags
 
-There are currently a number of images being built for the different operating systems. This image is built using 10up/wp-php-fpm as the base image with support for PHP 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1 and 8.2. Note that we do not build CentOS/Rocky Linux based images beyond 8.0 and they will be removed in the future. 
+There are currently a number of images being built for the different operating systems. This image is built using 10up/wp-php-fpm as the base image with support for PHP 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3 and 8.4. Note that we do not build CentOS/Rocky Linux based images beyond 8.0 and they will be removed in the future. 
 
 Also note that CentOS/RL based images are not being pushed to ghcr.io!
 
@@ -31,6 +31,7 @@ They are available under the tags:
   * 10up/wp-php-fpm-dev:8.1-ubuntu
   * 10up/wp-php-fpm-dev:8.2-ubuntu
   * 10up/wp-php-fpm-dev:8.3-ubuntu
+  * 10up/wp-php-fpm-dev:8.4-ubuntu
 * Ubuntu 22.04 based (Github Packages)
   * ghcr.io/10up/wp-php-fpm-dev:7.0-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:7.1-ubuntu
@@ -41,6 +42,7 @@ They are available under the tags:
   * ghcr.io/10up/wp-php-fpm-dev:8.1-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:8.2-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:8.3-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:8.4-ubuntu
 * Ubuntu 24.04 based (Docker Hub)
   * 10up/wp-php-fpm:7.0-noble
   * 10up/wp-php-fpm:7.1-noble
