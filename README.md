@@ -31,6 +31,7 @@ They are available under the tags:
   * 10up/wp-php-fpm-dev:8.1-ubuntu
   * 10up/wp-php-fpm-dev:8.2-ubuntu
   * 10up/wp-php-fpm-dev:8.3-ubuntu
+  * 10up/wp-php-fpm-dev:8.4-ubuntu
 * Ubuntu 22.04 based (Github Packages)
   * ghcr.io/10up/wp-php-fpm-dev:7.0-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:7.1-ubuntu
@@ -41,6 +42,7 @@ They are available under the tags:
   * ghcr.io/10up/wp-php-fpm-dev:8.1-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:8.2-ubuntu
   * ghcr.io/10up/wp-php-fpm-dev:8.3-ubuntu
+  * ghcr.io/10up/wp-php-fpm-dev:8.4-ubuntu
 * Ubuntu 24.04 based (Docker Hub)
   * 10up/wp-php-fpm:7.0-noble
   * 10up/wp-php-fpm:7.1-noble
